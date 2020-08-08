@@ -1,0 +1,7 @@
+<h1>NavgationBar</h1>
+<div class="row">
+	<% @books.each do |book| %>
+		<div class="col-sm-3 col-6"><img src="/assets/contents/<%= book.title %>/1.jpg" style="width:100%"></div>
+	<% end %>
+</div>
+<%= paginate @books %>
