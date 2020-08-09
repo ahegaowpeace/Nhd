@@ -4,4 +4,6 @@ class Book < ApplicationRecord
 
 	has_many :ctgrelations
 	has_many :categories, through: :ctgrelations, source: :category
+	has_many :tagrelations
+	has_many :tags, through: :tagrelations, source: :tag
 end
