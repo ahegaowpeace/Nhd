@@ -1,4 +1,12 @@
-<h1>NavgationBar</h1>
+<div>
+	<h4 class="bg-dark text-light p-2"><%= @book.title %></h2>
+	<h5><span class="badge badge-secondary">カテゴリ</span></h5>
+	<div style="display: flex;">
+		<% @book.categories.each do |category| %>
+			<a href="/categories/<%= category.name %>" style="float: left;"><div class="rounded bg-light mr-2 mb-2"><%= category.name %></div></a>
+		<% end %>
+	</div>
+</div>
 <div class="row">
 	<% (1..@book.pagenum).each do |num| %>
 		<div class="col-sm-12 mb-3"><img src="/assets/contents/<%= @book.title %>/<%= num %>.jpg" style="width:100%; border: solid 1px gray;"></div>
