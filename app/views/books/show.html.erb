@@ -4,7 +4,14 @@
 	<h5><span class="badge badge-secondary">カテゴリ</span></h5>
 	<div style="display: flex;">
 		<% @book.categories.each do |category| %>
-			<a href="/categories/<%= category.name %>" style="float: left;"><div class="rounded bg-light mr-2 mb-2"><%= category.name %></div></a>
+			<div class="rounded bg-light mr-2 mb-2">
+				<a href="/categories/<%= category.name %>" style="float: left; padding-top: 2px;"><%= category.name %></a>
+				<a href="/books/<%= @book.id %>?ctgname=<%= category.name %>" data-method="delete">
+					<button type="button" class="close" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</a>
+			</div>
 		<% end %>
 	</div>
 	<%= form_with url: book_path(@book.id) do |f| %>
@@ -13,7 +20,7 @@
 	<% end %>
 </div>
 
-<!-- 本一覧部分 -->
+<!-- 本部分 -->
 <div class="row mt-2">
 	<% (1..@book.pagenum).each do |num| %>
 		<div class="col-sm-12 mb-3"><img src="/assets/contents/<%= @book.title %>/<%= num %>.jpg" style="width:100%; border: solid 1px gray;"></div>

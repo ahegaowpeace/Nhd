@@ -8,7 +8,7 @@ class BooksController < ApplicationController
 		@category = Category.new
 	end
 
-	def addctg
+	def addatr
 		@book = Book.find(params[:id])
 
 		# カテゴリPOST処理
@@ -30,6 +30,15 @@ class BooksController < ApplicationController
 					end
 				end
 			end
+		end
+	end
+
+	def delatr
+		bookid = params[:id]
+		@category = Category.find_by(name: params.require(:ctgname))
+		@ctgrelation = Ctgrelation.find_by(book_id: bookid, category_id: @category.id)
+		if @ctgrelation.destroy
+			redirect_to book_path(bookid)
 		end
 	end
 end
