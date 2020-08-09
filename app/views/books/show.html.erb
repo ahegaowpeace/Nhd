@@ -1,3 +1,4 @@
+<!-- カテゴリ部分 -->
 <div>
 	<h4 class="bg-dark text-light p-2"><%= @book.title %></h2>
 	<h5><span class="badge badge-secondary">カテゴリ</span></h5>
@@ -6,8 +7,14 @@
 			<a href="/categories/<%= category.name %>" style="float: left;"><div class="rounded bg-light mr-2 mb-2"><%= category.name %></div></a>
 		<% end %>
 	</div>
+	<%= form_with url: book_path(@book.id) do |f| %>
+		<%= f.text_field :ctgname %>
+		<%= f.submit '追加', class: 'btn btn-sm btn-primary'%>
+	<% end %>
 </div>
-<div class="row">
+
+<!-- 本一覧部分 -->
+<div class="row mt-2">
 	<% (1..@book.pagenum).each do |num| %>
 		<div class="col-sm-12 mb-3"><img src="/assets/contents/<%= @book.title %>/<%= num %>.jpg" style="width:100%; border: solid 1px gray;"></div>
 	<% end %>
