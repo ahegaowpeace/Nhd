@@ -6,4 +6,6 @@ class Book < ApplicationRecord
 	has_many :categories, through: :ctgrelations, source: :category
 	has_many :tagrelations
 	has_many :tags, through: :tagrelations, source: :tag
+	has_many :artrelations
+	has_many :artists, through: :artrelations, source: :artist
 end

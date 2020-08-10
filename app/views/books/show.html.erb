@@ -36,6 +36,24 @@
 		<%= f.text_field :tagname %>
 		<%= f.submit '追加', class: 'btn btn-sm btn-primary', name: 'sendtag'%>
 	<% end %>
+	<!-- 作者部分 -->
+	<h5 class="mt-2"><span class="badge badge-secondary">作者</span></h5>
+	<div style="display: flex;">
+		<% @book.artists.each do |artist| %>
+			<div class="rounded bg-light mr-2 mb-2">
+				<a href="/artists/<%= artist.name %>" style="float: left; padding-top: 2px;"><%= artist.name %></a>
+				<a href="/books/<%= @book.id %>?artname=<%= artist.name %>" data-method="delete">
+					<button type="button" class="close" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</a>
+			</div>
+		<% end %>
+	</div>
+	<%= form_with url: book_path(@book.id) do |f| %>
+		<%= f.text_field :artname %>
+		<%= f.submit '追加', class: 'btn btn-sm btn-primary', name: 'sendart'%>
+	<% end %>
 </div>
 
 <!-- 本部分 -->

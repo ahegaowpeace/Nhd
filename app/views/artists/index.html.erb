@@ -1,0 +1,5 @@
+<div>
+	<% @artists.each do |artist| %>
+		<a href="/artists/<%= artist.name %>" style="float: left;"><div class="rounded bg-light mr-2 mb-2"><%= artist.name %></div></a>
+	<% end %>
+</div>
