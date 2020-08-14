@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 	post '/books/:id', to: 'books#addatr'
 	delete '/books/:id', to: 'books#delatr'
 
+	post '/search', to: 'search#index'
+
 	get '/categories', to: 'categories#index'
 	get '/categories/:category', to: 'categories#show'
   get '/tags', to: 'tags#index'

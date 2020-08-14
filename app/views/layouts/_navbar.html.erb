@@ -2,6 +2,12 @@
 	<nav class="navbar navbar-expand-sm navbar-light bg-light">
     <!-- ホームへ戻るリンク。ブランドロゴなどを置く。 -->
     <a href="/" class="navbar-brand">Nh</a>
+
+		<!-- 検索窓 -->
+		<%= form_with url: search_path, method: :post, local: true do |f| %>
+			<%= f.text_field :keyword %>
+			<%= f.submit '検索', class: 'btn btn-sm btn-primary' %>
+		<% end %>
     
     <!-- 横幅が狭い時に出るハンバーガーボタン -->
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
