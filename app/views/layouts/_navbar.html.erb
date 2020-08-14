@@ -4,7 +4,7 @@
     <a href="/" class="navbar-brand">Nh</a>
 
 		<!-- 検索窓 -->
-		<%= form_with url: search_path, method: :post, local: true do |f| %>
+		<%= form_with url: search_path, method: :get, local: true do |f| %>
 			<%= f.text_field :keyword %>
 			<%= f.submit '検索', class: 'btn btn-sm btn-primary' %>
 		<% end %>
