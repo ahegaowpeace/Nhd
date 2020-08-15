@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 	delete '/books/:id', to: 'books#delatr'
 
 	get '/search', to: 'search#index'
+	get '/sitemaps', to: 'sitemaps#index'
 
 	get '/categories', to: 'categories#index'
 	get '/categories/:category', to: 'categories#show'
