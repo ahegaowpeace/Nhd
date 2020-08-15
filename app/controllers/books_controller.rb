@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def index
     @books = Book.order(id: :desc).page(params[:page]).per(28)
+		@rcntcmts = Comment.order(id: :desc).limit(8)
   end
 
 	def show

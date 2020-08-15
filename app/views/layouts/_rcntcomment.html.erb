@@ -1,0 +1,13 @@
+<h3>最近のコメ付き</h3>
+<div class="row">
+	<% rcntcmts.each do |cmt| %>
+			<div class="col-sm-3 col-6"><a href="/books/<%= cmt.books[0].id %>"><img src="/assets/contents/<%= cmt.books[0].title %>/1.jpg" style="width:100%"></a></div>
+	<% end %>
+</div>
+
+<style>
+	h3 {
+		display: inline-block;
+		border-bottom: solid 1px gray;
+	}
+</style>
