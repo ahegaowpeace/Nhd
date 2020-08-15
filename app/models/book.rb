@@ -8,4 +8,7 @@ class Book < ApplicationRecord
 	has_many :tags, through: :tagrelations, source: :tag
 	has_many :artrelations
 	has_many :artists, through: :artrelations, source: :artist
+
+	has_many :cmtrelations
+	has_many :comments, through: :cmtrelations, source: :comment
 end

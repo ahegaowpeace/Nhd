@@ -62,3 +62,20 @@
 		<div class="col-sm-12 mb-3"><img src="/assets/contents/<%= @book.title %>/<%= num %>.jpg" style="width:100%; border: solid 1px gray;"></div>
 	<% end %>
 </div>
+
+<!-- コメント部分 -->
+<div class="row mt-2">
+	<% cnt = 0 %>
+	<% @book.comments.each do |comment| %>
+		<% cnt += 1 %>
+		<div class="col-sm-12">
+			<p class="mb-0"><%= cnt %> <%= comment.user %> <%= comment.created_at %></p>
+			<p><%= safe_join(comment.comment.split("\n"),tag(:br)) %></p>
+		</div>
+	<% end %>
+	<%= form_with(url: book_path(@book.id), class: 'form-group w-75 mx-auto bg-secondary p-2') do |f| %>
+		<%= f.text_field :username, value: '名無し', class: 'd-block mb-2' %>
+		<%= f.text_area :comment, class: 'd-block mb-2 w-100' %>
+		<%= f.submit 'コメントする', class: 'btn btn-sm btn-primary mx-auto mt-4 d-block', name: 'sendcmt' %>
+	<% end %>
+</div>

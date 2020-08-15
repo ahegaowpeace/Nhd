@@ -31,6 +31,12 @@ class BooksController < ApplicationController
 			@artrelation = Artrelation.new(book_id: @book.id, artist_id: @artist.id)
 			redirect_to book_path(@book.id) if @artrelation.save
 		end
+		# コメントPOST処理
+		if params[:sendcmt]
+			@comment = Comment.create(user: params.require(:username), comment: params.require(:comment))
+			@cmtrelation = Cmtrelation.new(book_id: @book.id, comment_id: @comment.id)
+			redirect_to book_path(@book.id) if @cmtrelation.save
+		end
 	end
 
 	def delatr
