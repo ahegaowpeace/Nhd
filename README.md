@@ -1,8 +1,13 @@
 ## Memo
 - シンボリックリンク
 	- ```rails server -b 0.0.0.0```
-	- ```ln -s /Nhentai/imaegs/contents/ /rails_works/labo/app/assets/images/contents```
+	- ```ln -s /Nhentai/imaegs/contents/ /rails_work/labo/app/assets/images/contents```
 この順番でやらないと無限ローディングになる。(毎回リンクの付け外しをする必要がある。)
+よく分からんがシンボリックリンクを張る時は絶対リンクじゃなくて、/rails_work/labo/app/assets/images/に移動して
+```
+ln -s /Nhentai/imaegs/contents/
+```
+しないといけない。
 - 上記の補足
 	- 一旦コンパイラを動かして、画像がありません状態にしてから↑を実行する必要がある。コンパイル後にシンボリックリンクでパスを教えてあげないと、エンコードされたパスを読みに行くため。
 
