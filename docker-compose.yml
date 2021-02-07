@@ -11,6 +11,7 @@ services:
       MYSQL_ROOT_PASSWORD: password
       TZ: 'Asia/Tokyo'
     volumes:
+      - .:/Nhd
       - ./mysql:/var/lib/mysql
       - ./mysql-confd/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./mysql-confd/charset.cnf:/etc/mysql/conf.d/charset.cnf
