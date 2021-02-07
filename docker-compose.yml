@@ -11,7 +11,6 @@ services:
       MYSQL_ROOT_PASSWORD: password
       TZ: 'Asia/Tokyo'
     volumes:
-      - .:/Nhd
       - ./mysql:/var/lib/mysql
       - ./mysql-confd/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./mysql-confd/charset.cnf:/etc/mysql/conf.d/charset.cnf
@@ -20,7 +19,8 @@ services:
       context: .
       dockerfile: ./docker/web.dockerfile
     container_name: rails_web
-    # volumes:
+    volumes:
+      - .:/usr/src/Nhd
     #   - ./sample/:/usr/src/sample/
     ports:
       - "3000:3000"
