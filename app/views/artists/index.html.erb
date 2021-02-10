@@ -1,0 +1,7 @@
+<div>
+	<% @artists.each do |artist| %>
+		<% if artist.books.count > 0 %>
+			<a href="/artists/<%= artist.name %>" style="float: left;"><div class="rounded bg-light mr-2 mb-2"><%= artist.name %>(<%= artist.books.count %>)</div></a>
+		<% end %>
+	<% end %>
+</div>

@@ -59,3 +59,5 @@ gem 'jquery-rails'
 # kaminari
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+
+gem 'sprockets', '~> 3.7.2'

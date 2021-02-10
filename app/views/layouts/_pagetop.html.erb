@@ -1,0 +1,36 @@
+<div id="mmm">
+	<a href="#"></a>
+</div>
+
+<script>
+	$(function(){
+		var pagetop=$('#mmm');
+		pagetop.hide();
+
+		$(window).scroll(function(){
+			if($(this).scrollTop()>1000){
+				pagetop.fadeIn();
+			}else{
+				pagetop.fadeOut();
+			}
+		})
+
+		pagetop.click(function(){
+			$('body,HTML').animate({
+				scrollTop: 0},500);
+			return false;
+		});
+	});
+</script>
+
+<style>
+	#mmm {
+		position: fixed;
+		bottom: 30px;
+		right: 30px;
+		width: 40px;
+		height: 40px;
+		background-image: url("/assets/pagetop.jpg");
+		background-size: contain;
+	}
+</style>

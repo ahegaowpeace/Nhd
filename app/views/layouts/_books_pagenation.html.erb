@@ -1,0 +1,6 @@
+<div class="row mb-2">
+	<% books.each do |book| %>
+		<div class="col-sm-3 col-6 mb-2"><a href="/books/<%= book.id %>"><img src="/assets/contents/<%= book.title %>/1.jpg" style="width:100%"></a></div>
+	<% end %>
+	<%= paginate @books %>
+</div>

@@ -1,0 +1,81 @@
+<div>
+	<h4 class="bg-dark text-light p-2"><%= @book.title %></h2>
+	<!-- カテゴリ部分 -->
+	<h5><span class="badge badge-secondary">カテゴリ</span></h5>
+	<div style="display: flex;">
+		<% @book.categories.each do |category| %>
+			<div class="rounded bg-light mr-2 mb-2">
+				<a href="/categories/<%= category.name %>" style="float: left; padding-top: 2px;"><%= category.name %></a>
+				<a href="/books/<%= @book.id %>?ctgname=<%= category.name %>" data-method="delete">
+					<button type="button" class="close" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</a>
+			</div>
+		<% end %>
+	</div>
+	<%= form_with url: book_path(@book.id) do |f| %>
+		<%= f.text_field :ctgname %>
+		<%= f.submit '追加', class: 'btn btn-sm btn-primary', name: 'sendctg'%>
+	<% end %>
+	<!-- タグ部分 -->
+	<h5 class="mt-2"><span class="badge badge-secondary">タグ</span></h5>
+	<div style="display: flex;">
+		<% @book.tags.each do |tag| %>
+			<div class="rounded bg-light mr-2 mb-2">
+				<a href="/tags/<%= tag.name %>" style="float: left; padding-top: 2px;"><%= tag.name %></a>
+				<a href="/books/<%= @book.id %>?tagname=<%= tag.name %>" data-method="delete">
+					<button type="button" class="close" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</a>
+			</div>
+		<% end %>
+	</div>
+	<%= form_with url: book_path(@book.id) do |f| %>
+		<%= f.text_field :tagname %>
+		<%= f.submit '追加', class: 'btn btn-sm btn-primary', name: 'sendtag'%>
+	<% end %>
+	<!-- 作者部分 -->
+	<h5 class="mt-2"><span class="badge badge-secondary">作者</span></h5>
+	<div style="display: flex;">
+		<% @book.artists.each do |artist| %>
+			<div class="rounded bg-light mr-2 mb-2">
+				<a href="/artists/<%= artist.name %>" style="float: left; padding-top: 2px;"><%= artist.name %></a>
+				<a href="/books/<%= @book.id %>?artname=<%= artist.name %>" data-method="delete">
+					<button type="button" class="close" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</a>
+			</div>
+		<% end %>
+	</div>
+	<%= form_with url: book_path(@book.id) do |f| %>
+		<%= f.text_field :artname %>
+		<%= f.submit '追加', class: 'btn btn-sm btn-primary', name: 'sendart'%>
+	<% end %>
+</div>
+
+<!-- 本部分 -->
+<div class="row mt-2">
+	<% (1..@book.pagenum).each do |num| %>
+		<div class="col-sm-12 mb-3"><img src="/assets/contents/<%= @book.title %>/<%= num %>.jpg" style="width:100%; border: solid 1px gray;"></div>
+	<% end %>
+</div>
+
+<!-- コメント部分 -->
+<div class="row mt-2">
+	<% cnt = 0 %>
+	<% @book.comments.each do |comment| %>
+		<% cnt += 1 %>
+		<div class="col-sm-12">
+			<p class="mb-0"><%= cnt %> <%= comment.user %> <%= comment.created_at %></p>
+			<p><%= safe_join(comment.comment.split("\n"),tag(:br)) %></p>
+		</div>
+	<% end %>
+	<%= form_with(url: book_path(@book.id), class: 'form-group w-75 mx-auto bg-secondary p-2') do |f| %>
+		<%= f.text_field :username, value: '名無し', class: 'd-block mb-2' %>
+		<%= f.text_area :comment, class: 'd-block mb-2 w-100' %>
+		<%= f.submit 'コメントする', class: 'btn btn-sm btn-primary mx-auto mt-4 d-block', name: 'sendcmt' %>
+	<% end %>
+</div>

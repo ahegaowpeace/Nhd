@@ -1,0 +1,7 @@
+<div>
+	<% @categories.each do |category| %>
+		<% if category.books.count > 0 %>
+			<a href="/categories/<%= category.name %>" style="float: left;"><div class="rounded bg-light mr-2 mb-2"><%= category.name %>(<%= category.books.count %>)</div></a>
+		<% end %>
+	<% end %>
+</div>

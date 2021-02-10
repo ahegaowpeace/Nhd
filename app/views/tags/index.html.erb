@@ -1,0 +1,7 @@
+<div>
+	<% @tags.each do |tag| %>
+		<% if tag.books.count > 0 %>
+			<a href="/tags/<%= tag.name %>" style="float: left;"><div class="rounded bg-light mr-2 mb-2"><%= tag.name %>(<%= tag.books.count %>)</div></a>
+		<% end %>
+	<% end %>
+</div>
