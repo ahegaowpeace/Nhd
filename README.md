@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
 ## Memo
 - シンボリックリンク
 	- ```rails server -b 0.0.0.0```
@@ -63,4 +37,3 @@ environment.plugins.prepend('Provide',
 import 'bootstrap'
 import '../src/application.scss'
 ```
->>>>>>> 93d60989ef7faf66cc89d2f92de027a2f9465358
