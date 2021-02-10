@@ -36,3 +36,7 @@ yarn-debug.log*
 .yarn-integrity
 
 mysql/
+
+# Ignore Contents
+app/assets/images/contents/*
+db/seeds.rb
