@@ -40,3 +40,4 @@ mysql/
 # Ignore Contents
 app/assets/images/contents/*
 db/seeds.rb
+/public/images

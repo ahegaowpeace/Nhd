@@ -59,7 +59,7 @@
 <!-- 本部分 -->
 <div class="row mt-2">
 	<% (1..@book.pagenum).each do |num| %>
-		<div class="col-sm-12 mb-3"><img src="/assets/contents/<%= @book.title %>/<%= num %>.jpg" style="width:100%; border: solid 1px gray;"></div>
+		<div class="col-sm-12 mb-3"><img src="/images/contents/<%= @book.title %>/<%= num %>.jpg" style="width:100%; border: solid 1px gray;"></div>
 	<% end %>
 </div>
 
