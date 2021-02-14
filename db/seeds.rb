@@ -1,7 +1,0 @@
-#Book.create(title: "inthefirstperson", pagenum: 14)
-#Book.create(title: "このままのそれから", pagenum: 20)
-#Book.create(title: "シマウマナルコレプシー", pagenum: 28)
-#Book.create(title: "ジバちゃんのナツ", pagenum: 22)
-#Book.create(title: "ダブルスロウチョコレート", pagenum: 22)
-#Book.create(title: "トラウマセックスクリニック", pagenum: 22)
-#Book.create(title: "ハーレムレーン", pagenum: 321)
