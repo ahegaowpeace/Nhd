@@ -31,9 +31,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # For rspec
 gem 'rspec-rails'
 
-# User RubCop for clean source code
+# Use RubCop for clean source code
 gem 'rubocop'
 gem 'rubocop-rspec'
+
+# Use cache by redis
+gem 'redis-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

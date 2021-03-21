@@ -41,3 +41,6 @@ mysql/
 app/assets/images/contents/*
 db/seeds.rb
 /public/images
+
+# Ignore Redis temp faile
+appendonly.aof
