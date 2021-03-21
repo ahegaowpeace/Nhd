@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
   def index
-    #@categories = Category.order(name: :asc).to_a
 		@categories = cache_categories
   end
 
